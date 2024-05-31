@@ -1,0 +1,10 @@
+import sqlite3 
+conn=sqlite3.connect(r"E:\project\databeta.db")
+create=conn.cursor()
+create.execute('''CREATE TABLE myorder(id integer PRIMARY KEY AUTOINCREMENT,name varchar(100) NOT NULL,price INTEGER(100) NOT NULL,quantity INTEGER(100) NOT NULL,picture BLOB )''')
+create.execute('''CREATE TABLE mystore(id INTEGER PRIMARY KEY,name varchar(100) NOT NULL,price INTEGER(100) NOT NULL,quantity INTEGER(100) NOT NULL,picture  BLOB)''')
+create.execute('''CREATE TABLE history(id INTEGER PRIMARY KEY,category varchar(100) NOT NULL,name varchar(100) NOT NULL,price INTEGER(100) NOT NULL,quantity INTEGER(100) NOT NULL,date INTEGER(100) NOT NULL)''')
+create.execute('''CREATE TABLE IF NOT EXISTS admin (username TEXT PRIMARY KEY,password TEXT,level INTEGER,passwordnothast TEXT)''')
+create.execute('''CREATE TABLE IF NOT EXISTS member (username TEXT PRIMARY KEY,password TEXT,level INTEGER,passwordnothast TEXT)''')
+conn.commit()
+conn.close()
